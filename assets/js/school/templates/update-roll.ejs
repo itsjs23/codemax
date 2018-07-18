@@ -1,0 +1,41 @@
+<!-- Prepare data ordered by girls -->
+<% 
+    var boys = [],
+        girls = [];
+    
+    for(var i = 0, len = data.length; i < len; i++) { 
+        if(data[i].gender == 'male' || data[i].gender == 'Male' ) {
+            boys.push(data[i]);
+        } else {
+            girls.push(data[i]);
+        }
+    }
+
+    // sort girls and boys by name
+    girls.sort();
+    boys.sort();
+
+    data = girls.concat(boys);
+%>
+
+
+<!-- Templating starts from here -->
+<% if(data.length > 0) { %>
+<% for(var i =0; i < data.length; i++) { %>
+<tr>
+    <td><input
+            type="number"
+            data-row="yes"
+            data-enroll="<%=data[i]['enroll_no']%>"
+            value="<%=data[i]['roll_num']%>"
+            style="width: 80px"></td>
+    <td><%=data[i]['enroll_no']%></td>
+    <td><%=data[i]['name']%></td>
+</tr>
+<% } %>
+<tr>
+    <td colspan="4" style="text-align: center">
+        <button data-btn-type="update-btn" class="btn btn-large btn-blue">Submit</button>
+    </td>
+</tr>
+<% } %>

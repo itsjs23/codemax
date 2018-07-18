@@ -1,0 +1,93 @@
+<%
+// this function prepares the grade scale
+function showGradeMarks(marksValue)
+{
+    var percentageScale = ['91-100', '81-90', '71-80', '61-70', '51-60', '41-50', '33-40', '21-32', '0-20'];
+    var gradesScale = ['A1', 'A2', 'B1', 'B2', 'C1', 'C2', 'D ', 'E1','E2'];
+    var htm = '';
+    
+    for(var i = 0; i < 9; i++) {
+        var floor = percentageScale[i].split('-')[0];
+        var ceil = percentageScale[i].split('-')[1];
+        var scale = (floor * marksValue / 100) + '-' + (ceil * marksValue / 100);
+        var breakString = (i === 2 || i === 5) ? '<br>' : '';
+        
+        htm += '<span class="grade"><b>' + gradesScale[i] + '</b>' + '&nbsp;' + scale + ' ' + '</span>';
+    }
+    
+    return htm;
+}
+%>
+
+
+<!-- Few Styles Specific To This Template -->
+<style>
+.grade { font-size: 1.2rem !important;   padding-right: 1.5rem; display: inline-block }
+.grade b { color: #fff; background: #607D8B; padding:  #607D8B; padding: 0.2rem 0.4rem; border-radius: 2px; }
+caption { text-align: left; background: #eee; padding-left: 15px; padding-right: 15px; border: 1px solid #ccc; }
+caption h6 { margin-bottom: 1rem; border-bottom: 1px solid #ccc; font-weight: 400 }
+</style>
+
+
+<!-- Templating starts here -->
+<caption style="text-align: left">
+    <div>
+        <% if(data[0][0]['written_mark'] != 0) { %>
+            <h6>Grade Scale: Written Marks</h6>
+            <%=showGradeMarks(data[0][0]['written_mark'])%>
+            <br><br>
+        <% } %>    
+    </div>
+    
+    <div class="col">
+        <% if(data[0][0]['oral_mark'] != 0) { %>
+            <h6>Grade Scale: Oral Marks</h6>
+            <%=showGradeMarks(data[0][0]['oral_mark'])%>
+            <br><br>
+        <% } %>
+    </div>    
+</caption>
+
+<thead>
+    <tr>
+        <th>Roll No.</th>
+        <th>Student's Name</th>
+        <% if(data[0][0]['written_mark'] != 0) { %>
+        <th>Written / <%=data[0][0]['written_mark']%></th>
+        <% } %>
+        <% if(data[0][0]['oral_mark'] != 0) { %>
+        <th>Oral / <%=data[0][0]['oral_mark']%></th>
+        <% } %>
+    </tr>
+</thead>
+<tbody id="add-marks-table">
+    <% for(var i = 0, len = data[1].length; i < len; i++) { %>
+    <tr data-enroll-no="<%=data[1][i].enroll_no%>" data-written-marks="<%=data[1][i].written_mark%>" data-oral-marks="<%=data[1][i].oral_mark%>">
+        <td><%=data[1][i].roll_num%></td>
+        <td><%=data[1][i].name%></td>
+        <% if(data[0][0]['written_mark'] != 0) { %>
+        <td>
+            <input type="text" value="<%=data[1][i].written_mark%>" style="width: 80px" data-input="written"  data-max-marks="<%=data[0][0].written_mark%>" <% if(data[1][i].written_mark != '') { %> readonly <% } %> list="written-mark-box">
+            <datalist id="written-mark-box">
+                <option value="Ab">Absent</option>
+				<option value="ML">Medical Leave</option>
+				<option value="NA">Not Applicable</option>
+            </datalist>
+        </td>
+        <% } %>
+        <% if(data[0][0]['oral_mark'] != 0) { %>
+        <td>
+            <input type="text" value="<%=data[1][i].oral_mark%>" style="width: 80px" data-input="oral"  data-max-marks="<%=data[0][0].oral_mark%>" <% if(data[1][i].oral_mark != '') { %> readonly <% } %> list="oral-mark-box">
+            <datalist id="oral-mark-box">
+                <option value="Ab">Absent</option>
+				<option value="ML">Medical Leave</option>
+				<option value="NA">Not Applicable</option>
+            </datalist>
+        </td>
+        <% } %>
+    </tr>
+    <% } %>
+    <tr>
+        <td colspan="4" style="text-align: center"><button class="btn btn-large btn-blue" data-btn-type="add-marks-btn">Submit</button></td>
+    </tr>
+</tbody>

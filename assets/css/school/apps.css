@@ -1,0 +1,63 @@
+.wrapper {
+    padding-top: 30px;
+}
+.page-head {
+    font-variant: small-caps;
+    border-bottom: 2px solid;
+}
+.sub-head {
+    border-bottom: 1px solid #646464;
+    position: relative;
+    padding-bottom: 1rem;
+    color: #607D8B;
+}
+.sub-head button {
+    position: absolute;
+    right: 0;
+}
+.sub-head select {
+    border-color: #607D8B;
+}
+.sub-head .ion-social-windows {
+    color: green;
+}
+.app-tile {
+    padding-bottom: 50px;
+    display: block;
+    color: #000;
+}
+.app-tile h5 {
+    margin-bottom: 1rem;
+    padding-left: 1rem;
+    border-left: 3px solid #cd5c5c;
+    border-bottom: 1px solid #cd5c5c;
+}
+.category {
+    color: #3F51B5;
+    background: #eee;
+}
+.install {
+    background-color: #4caf50;
+}
+img {
+    width: 124px;
+    height: 124px;
+    display: inline-block;
+    margin: 0 auto;
+    /*background: url(assets/img/common/loading.gif) 50% no-repeat;*/
+}
+.nav a.empty-link {
+    background-color: #564b4b;
+    color: #fff;
+    text-align: center;
+}
+.app-tile h6 {
+    margin-bottom: 0;
+    font-size: 1.4rem;
+}
+.app-details h5 {
+    text-align: justify;
+}
+.rate-star:hover {
+    cursor: pointer;
+}

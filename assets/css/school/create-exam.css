@@ -1,0 +1,32 @@
+h4.page-head {
+    border-bottom: 2px solid;
+    padding-top: 4rem;
+    padding-bottom: 0.5rem;
+    font-variant: small-caps;
+}
+h4.page-head span {
+    float: right;
+    position: relative;
+    top: -0.5rem
+}
+p.phead {
+    text-align: center;
+    border-bottom: 1px solid #ccc;
+    margin-bottom: 3.5rem; text-transform: uppercase;
+    color: #646464
+}
+#selection-box {
+    padding: 2rem;
+    background: #ccc;
+    margin-bottom: 3.5rem;
+}
+#mcqs-div img {
+    background: #434C65;
+    display: block;
+    height: auto;
+    width: 95%;
+    margin: 0 auto;
+    margin-bottom: 3rem;
+    padding: 1rem;
+    border-radius: 2px;
+}

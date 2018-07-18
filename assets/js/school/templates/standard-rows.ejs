@@ -1,0 +1,32 @@
+<div class="row">
+	<div class="col m3">
+		<b>Section</b>
+	</div>
+	<div class="col m3">
+		<b>Percentage</b>
+	</div>
+	<div class="col m3">
+		<b>Total Exams</b>
+	</div>
+	<div class="col m3">
+		<b>View</b>
+	</div>
+</div>
+<% for(var i = 0; i < data.length; i++) { %>
+<div class="row">
+	<div class="col m3">
+		<%=data[i].sec%>
+	</div>
+	<div class="col m3">
+		<%=data[i].percentage%>
+	</div>
+	<div class="col m3">
+		<%=data[i].total_exam%>
+	</div>
+	<div class="col m3">
+		<button class="btn btn-red" data-btn-type="popupExams" data-details="<%=data[i].mdm + '|' + data[i].std + '|' + data[i].sec%>">
+			<i class="ion-arrow-right-c" data-btn-type="popupExams" data-details="<%=data[i].mdm + '|' + data[i].std + '|' + data[i].sec%>"></i>
+		</button>
+	</div>
+</div>
+<% } %>

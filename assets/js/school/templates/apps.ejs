@@ -1,0 +1,13 @@
+<% for(var i = 0, len = data.length; i < len; i++) { %>
+<a class="col m6 t2 l3 video-tile" href="apps/show/<%=data[i].app_id%>">
+    <img class="app-image" src="<%=data[i].image%>" title="<%=data[i].app_title%>">
+    <h6 title="<%=data[i].app_title%>">
+        <%=data[i].app_title.substr(0, 14)%>..
+    </h6>
+    <div class="tray">
+        <% for(var j = 0; j < 5; j++) { %>
+        <j class="ion-star"></j>
+        <% } %>
+    </div>
+</a>
+<% } %>

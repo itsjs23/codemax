@@ -1,0 +1,28 @@
+<% if(data.length > 0) { %>
+	<thead>
+        <tr>
+            <th>Roll No.</th>
+            <th class="hide-on-mobile">Enroll No.</th>
+            <th>Student's Name</th>
+            <th>&nbsp;</th>
+        </tr>
+    </thead>
+    <tbody>
+        <% for(var i =0; i < data.length; i++) { %>
+        <tr>
+            <td><%=data[i]['roll_num']%></td>
+            <td class="hide-on-mobile"><%=data[i]['enroll_no']%></td>
+            <td><%=data[i]['name']%></td>
+            <td>
+                <button data-type="mark-button" data-id="<%=data[i]['enroll_no']%>" data-flag="1" class="btn btn-green">P</button>
+            </td>
+        </tr>
+        <% } %>
+        <tr>
+            <td colspan="4" class="txt-center">
+                <input type="date" name="attendance_date" id="attendance_date" value="<%=getTodayDate()%>">
+                <button data-type="submit-button" class="btn btn-blue">Submit Attendence</button>
+            </td>
+        </tr>
+    </tbody>
+<% } %>

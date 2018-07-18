@@ -1,0 +1,45 @@
+h4.page-head {
+    border-bottom: 2px solid;
+    padding-top: 4rem;
+    padding-bottom: 0.5rem;
+    font-variant: small-caps;
+}
+form.align {
+    margin-bottom: 1rem;
+    padding-top: 1rem;
+}
+.max-wrap960 {
+	max-width: 960px;
+}
+input[type="file"] {
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+    border: 1px solid #bbb;
+    padding: 1rem;
+    cursor: pointer;
+}
+#table-container {
+    overflow-x: auto;
+}
+.hide-on-mobile {
+    /*display: inherit;*/
+	display: table-cell;
+}
+@media screen and (max-width: 680px) {
+    #table-container table {
+        /*width: 600px !important;*/
+    }
+    .hide-on-mobile {
+        display: none;
+    }
+}
+@media screen and (max-width: 400px) {
+    #table-container table {
+        /*width: 320px !important;*/
+    }
+    th, td {
+        font-size: 1.2rem;
+        padding-left: 0.1rem;
+        padding-right: 0.1rem;
+    }
+}

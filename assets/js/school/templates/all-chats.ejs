@@ -1,0 +1,25 @@
+<% for(var i = 0; i < data.length; i++) { %>
+    <% if(data[i].user_type == 1) { %>
+        <div class="teacher-chat">
+            <p>
+                <span class="ion-ios-alarm-outline chat-icon"></span>
+                <span class="chat-date"><%=data[i].date%></span>
+            </p>
+            <p class="chat-text">
+                <span class="ion-android-hangout"></span>
+                <span><%=data[i].msg%></span>
+            </p>
+        </div>
+    <% } else { %>
+        <div class="student-chat row">
+            <p class="txt-right">
+                <span class="ion-ios-alarm-outline chat-icon"></span>
+                <span class="chat-date"><%=data[i].date%></span>
+            </p>
+            <p class="chat-text float-right">
+                <span class="ion-android-hangout"></span>
+                <span><%=data[i].msg%></span>
+            </p>
+        </div>
+    <% } %>
+<% } %>

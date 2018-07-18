@@ -1,0 +1,20 @@
+<% if(data.length > 0) { %>
+<% for(var i =0; i < data.length; i++) { %>
+<tr>
+    <td><%=data[i]['roll_num']%></td>
+    <td><%=data[i]['enroll_no']%></td>
+    <td><%=data[i]['name']%></td>
+    <td>
+        <button data-btn-type="view-button"
+                data-enroll-no="<%=data[i]['enroll_no']%>"
+                data-student-name="<%=data[i]['name']%>"
+                class="btn btn-green">View</button>
+    </td>
+</tr>
+<% } %>
+<!--<tr>
+    <td colspan="4" class="txt-center">
+        <button data-type="group-button" class="btn btn-large btn-blue">View Attendence < 75%</button>
+    </td>
+</tr>-->
+<% } %>

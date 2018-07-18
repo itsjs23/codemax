@@ -1,0 +1,53 @@
+.graph-top-bar {
+    color: #5b4421;
+    /*background-color: #EADBC4;*/
+    background-color: rgba(158, 158, 158, 0.16);
+    padding: 1rem;
+    text-align: center;
+}
+.graph-top-bar select {
+    height: 2.5rem;
+    line-height: 2.5rem;
+}
+.graph-container {
+    padding-top: 5rem;
+    padding-bottom: 5rem;
+}
+.graph-box {
+    border: 1px solid #607D8B;
+    /*border-radius: 2px;*/
+}
+.graph-box h5 {
+    color: #fff;    
+    background-color: #607D8B;
+    padding-left: 1rem;
+    font-size: 1.4rem;
+}
+.no-data-message {
+    text-align: center;
+    color: #cd5c5c;
+}
+.avg-data {
+    position: relative;
+    right: 1rem;
+}
+/* ---------------- CHART SPECIFIC CSS OVERRIDE------------------ */
+.ct-series-a .ct-bar {  
+    stroke: #cd5c5c !important; /* Colour of your bars */
+    stroke-width: 30px; /* The width of your bars */
+}
+.ct-label {
+    font-size: 1.2rem !important;
+    color: #000 !important;
+}
+img.loading-graph {
+    height: 200px;
+}
+@media screen and (max-width: 640px) {
+    .ct-series-a .ct-bar {
+        stroke-width: 15px;
+    }
+    .section-label {
+        display: none;
+    }
+}

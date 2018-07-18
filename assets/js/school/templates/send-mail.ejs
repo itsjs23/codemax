@@ -1,0 +1,31 @@
+
+
+<% if(data.length > 0) { %>
+<h5 class="txt-center">List of Students</h5>
+<% for(var i =0; i < data.length; i++) { %>
+<div class="col m12 msg-div">    
+    <p class="msg-head" data-enroll="<%=data[i]['enroll_no']%>">
+        <i class="ion-android-mail" style="font-size: 1.8rem; color: cadetblue"></i>
+        <b style="font-size: 1.4rem">Roll No. <%=data[i]['roll_num']%></b>,
+        <span style="color: #6d6d6d; font-size: 1.3rem">Name: <%=data[i]['name']%>, Enroll No. <%=data[i]['enroll_no']%></span>
+    </p>
+    
+    <div class="hide">
+        <p id="id<%=data[i]['enroll_no']%>" class="chat-container">
+            <!--Chats go here-->
+        </p>
+        <p class="txt-center">
+            <textarea id="<%=data[i]['enroll_no']%>" class="full-width active" placeholder="Write your message here"></textarea>
+            <button class="btn blue send-reply-btn" data-id="<%=data[i]['enroll_no']%>">Send</button>
+        </p>
+    </div>
+</div>
+<% }} else { %>
+<div class="col m12 txt-center">
+    This class has no students so far.
+</div>
+<% } %>
+
+<div class="col m12 msg-div txt-center" style="padding-top: 4rem"><!--Just an empty div for css purpose-->
+    <button class="btn red" id="close-mail-box-btn">&times; Close List</button>
+</div>

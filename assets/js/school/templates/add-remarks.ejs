@@ -1,0 +1,48 @@
+<style>
+    #add-remarks-table input {
+        height: 2.2rem !important;
+        border-color: #607D8B !important;
+    }
+</style>
+
+
+<thead>
+    <tr>
+        <th>Roll No.</th>
+        <th class="hide-on-mobile">Enroll No.</th>
+        <th>Student's Name</th>
+        <th>Remarks</th>
+    </tr>
+</thead>
+<tbody id="add-remarks-table">
+    <% for(var i = 0, len = data[0].length; i < len; i++) { %>
+    <tr data-enroll-no="<%=data[0][i].enroll_no%>">
+        <td><%=data[0][i].roll_num%></td>
+        <td class="hide-on-mobile"><%=data[0][i].enroll_no%></td>
+        <td><%=data[0][i].name%></td>
+        <td>
+            <input type="text" placeholder="Progress" list="progress-remark" value="<%=data[0][i].progress%>"><br>
+            <input type="text" placeholder="Hobbies" list="hobbies-remark" value="<%=data[0][i].hobbies%>"><br>
+            <input type="text" placeholder="Improvements" list="improvements-remark" value="<%=data[0][i].improvement%>"><br>
+            <input type="text" placeholder="Others" value="<%=data[0][i].other%>">
+        </td>
+    </tr>
+    <% } %>
+    <tr>
+        <td colspan="4" style="text-align: center"><button class="btn btn-large btn-blue" data-btn-type="add-remarks-btn">Submit</button></td>
+    </tr>
+</tbody>
+
+
+<datalist id="progress-remark">
+    <option>Good</option>
+    <option>Bad</option>
+</datalist>
+<datalist id="hobbies-remark">
+    <option>Good</option>
+    <option>Bad</option>
+</datalist>
+<datalist id="improvements-remark">
+    <option>Good</option>
+    <option>Bad</option>
+</datalist>

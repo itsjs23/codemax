@@ -1,0 +1,54 @@
+<style>
+    .wrapper {
+        padding-top: 1rem;
+    }
+    form {
+        text-align: left;
+    }
+    form h5 {
+        border-bottom: 1px solid #000;
+        color: #cd5c5c;
+    }
+</style>
+
+
+<div class="wrapper">
+    <form method="post" action="">
+        <h5>
+            <i class="ion-social-youtube"></i>
+            Submit Video Details
+        </h5>
+
+        <div class="form-field">
+            <label>Url</label>
+            <input type="url" name="url" placeholder="url link for video" class="full-width" required>
+        </div>
+
+        <div class="form-field">
+            <label>Title</label>
+            <input type="text" name="title" placeholder="video title" class="full-width" required>
+        </div>
+
+        <div class="form-field">
+            <label>Description</label>
+            <textarea name="description" class="full-width" placeholder="basic description about the video" required></textarea>
+        </div>
+
+        <div class="form-field">
+            <label>Category</label>
+            <select name="cat_id" class="full-width" required>
+            </select>
+        </div>
+                
+        <div class="form-field">
+            <label>Group</label>
+            <select name="group_id" class="full-width" required>
+            </select>
+        </div>
+        
+        <div class="form-field txt-right">
+            <input type="submit" class="btn btn-green">
+            <button class="btn btn-red" data-btn-type="close">Cancel</button>
+        </div>
+    </form>
+</div>

@@ -1,0 +1,17 @@
+# disallow directory listing
+Options -Indexes
+
+# enable url rewriting
+RewriteEngine On
+
+# set rewrite base
+RewriteBase /codemax
+
+# check within directories
+RewriteCond %{REQUEST_FILENAME} !-d
+
+# check within files
+RewriteCond %{REQUEST_FILENAME} !-f
+
+#rewrite rule to pass url query e.g: url = controller/method/[param[..]]
+RewriteRule ^(.+)$ index.php?url=$1 [QSA,L]

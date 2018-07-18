@@ -1,0 +1,37 @@
+#home {
+    padding-top: 3rem;
+    text-align: center;
+}
+#home .col {
+    margin-bottom: 3.5rem;
+}
+#home h2 {
+    font-size: 2rem;
+    border-bottom: 1px solid;
+}
+#home a {
+    text-decoration: none;
+    color: rgb(100, 100, 100);
+    font-variant: small-caps;
+    font-size: 1.8rem;
+}
+#home a:hover {
+    color: #1a5a86;
+}
+#home a i {
+    display: inline-block;
+    height: 100px;
+    width: 100px;
+    line-height: 100px;
+    font-size: 2.8rem;
+    border: 1px solid;
+    border-radius: 50%;
+}
+#home a i:hover {
+    font-size: 3.5rem;
+}
+#home a:hover i {
+    color: #4285f4;
+    transition: 0.9s;
+    transform: rotateY(360deg);
+}

@@ -1,0 +1,20 @@
+<table class="table-stripped full-width">
+	<tbody>
+		<tr>
+			<th>Exam</th>
+			<th>Percentage</th>
+			<th>Appeared/Total</th>
+			<th>Date</th>
+		</tr>
+		<% for(var i = 0; i < data.length; i++) { %>
+		<tr>
+			<td><%=data[i].exam_name%></td>
+			<td><%=data[i].Per%></td>
+			<td><%=data[i].student_appeared%>/<%=data[i].student_total%></td>
+			<td><%=data[i].exam_date%></td>
+		</tr>
+		<% } %>
+	</tbody>
+</table>
+
+<button class="btn btn-red" data-btn-type="close">&times; Close</button>

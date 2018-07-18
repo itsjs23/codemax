@@ -1,0 +1,35 @@
+
+                <form method="POST" action="../../true-false/add">
+                    <p style="text-align: center; border-bottom: 1px solid #ccc; margin-bottom: 3.5rem; text-transform: uppercase;">
+                        TRUE/FALSE
+                    </p>
+                    <h4 style="margin-bottom: 0">
+                            <i class="ion-ios-download-outline" style="font-size: 4rem; color: green"></i>
+                            Your Question
+                    </h4>
+                    <textarea name="question" class="full-width" placeholder="Type your question here :)" required></textarea>
+                    <h4 style="margin-bottom: 0">
+                            <i class="ion-ios-download-outline" style="font-size: 4rem; color: green"></i>
+                            Set Answer
+                    </h4>
+                    <select name="option" class="full-width" required>
+                        <option value="">Please select true or false</option>
+                        <option value="true">True</option>
+                        <option value="false">False</option>
+                    </select>
+                    
+                    <h4 style="margin-bottom: 0rem">
+                            <i class="ion-ios-download-outline" style="font-size: 4rem; color: green"></i>
+                            Set Marks
+                    </h4>
+                    <input name="marks"
+                           type="number"
+                           class="full-width"
+                           placeholder="Enter the marks this question carries"
+                            style="margin-bottom: 3rem;" required>
+                    
+                    <button class="new-question-btn btn btn-blue btn-large full-width" id="next-btn">Next</button>
+                    <br><br>
+                </form>
+                
+            

@@ -1,0 +1,120 @@
+<!--The following block of javascript code contains logic for formatting data for easy templating-->
+<%
+var model = {
+    absentCounter: 1,
+    flag5: 0,
+    flag15: 0,
+    months: {1:'Jan', 2:'Feb', 3:'Mar', 4:'Apr', 5:'May', 6:'Jun', 7:'Jul', 8:'Aug', 9:'Sep', 10:'Oct', 11:'Nov', 12:'Dec'}
+};
+
+for(var i = 0, iLen = data.length; i < iLen; i++) {
+    var dates = data[i].absent_date.split(', ').sort();
+    for(var j = 0, jLen = dates.length; j < jLen; j++) {
+        if(dates[j+1]) {
+            var date1 = new Date(dates[j]);
+            var date2 = new Date(dates[j+1]);
+            var difference = Math.round(Math.abs((date1.getTime() - date2.getTime())/(24*60*60*1000)));
+
+            if(difference === 1) {
+                model.absentCounter++;
+                if(model.absentCounter >= 5) { model.flag5 = 1; }
+                if(model.absentCounter >= 15) { model.flag15 = 1; }
+            } else {
+                model.absentCounter = 1;
+            }
+        }
+    }
+
+    data[i].absent_date = (function () {
+        var formattedDates = {};
+        for(var i = 0, len = dates.length; i < len; i++) {
+            var arr = dates[i].split('-');
+            var monthNumeric = parseInt(arr[1], 10);
+            var dayNumeric = parseInt(arr[2], 10);
+            
+            if(!formattedDates[model.months[monthNumeric]]) {
+                formattedDates[model.months[monthNumeric]] = [];
+            }
+            
+            formattedDates[model.months[monthNumeric]].push(dayNumeric);
+        }
+
+        return formattedDates;
+    })();
+    data[i].flag5 = model.flag5;
+    data[i].flag15 = model.flag15;
+    
+    //As because we are done with flags for this loop, we need to reset them
+    model.flag5 = 0; model.flag15 = 0; model.absentCounter = 1;
+}
+%>
+<!--/Date formatting logic ends here-->
+
+
+<!-- We need some custom styles too -->
+<style>
+td { font-size: 1.6rem; font-family: monospace }
+td b { padding: 0.2rem 0.4rem; background: #607D8B; color: #fff; border-radius: 2px; }
+</style>
+<!--Actual HTML templating starts from here onwards-->
+<!--<tr>
+    <td>12</td>
+    <td>233</td>
+    <td>Ankit Agarwal</td>
+    <td>
+        <b>Sep</b> 13, 23, 24, 25, 26, 27, 28<br>
+    </td>
+    <td style="text-align: center">
+        <span class="red-label">7</span>
+    </td>
+    <td>Jul, Aug</td>
+    <td style="text-align: center">---</td>
+    <td style="text-align: center"><i class="ion-android-checkmark-circle"></i></td>
+</tr>-->
+
+<% var rowsCount = data.length; %>
+<% if(rowsCount > 0) { %>
+    <% for(var i = 0; i < rowsCount; i++) { var totalAbsentCount = 0; %>
+        <tr>
+            <td><%=data[i]['roll_no']%></td>
+            <td><%=data[i]['Gr_num']%></td>
+            <td><%=data[i]['Name']%></td>
+            <td>
+                <% for (var month in data[i].absent_date) { totalAbsentCount += data[i].absent_date[month].length %>
+                <b><%=month%></b> <%=data[i].absent_date[month].join(', ')%><br>
+                <% } %>
+            </td>
+            <td style="text-align: center">
+                <span class="red-label"><%=totalAbsentCount%></span>
+            </td>
+            <td>
+            <% for (var month in data[i].absent_date) { %>
+                <% if(data[i].absent_date[month].length >= 10) { %>
+                <b><%=month%></b>
+                <% } %>
+            <% } %>
+            </td>
+            <td>
+                <% if(data[i]['flag5'] == '1' && data[i]['flag15'] == '1') { %>
+                <i class="ion-android-checkmark-circle"></i>
+                <% } else { %>
+                ---
+                <% } %>
+            </td>
+            <td>
+                <% if(data[i]['flag5'] == '1') { %>
+                <i class="ion-android-checkmark-circle"></i>
+                <% } else { %>
+                ---
+                <% } %>
+            </td>
+        </tr>
+        
+        <!-- As because we are done with flags for this loop, we need to reset them -->
+        <% data[i].flag5 = 0; data[i].flag15 = 0 %>
+    <% } %>
+<% } else { %>
+<tr>
+    <td colspan="5"><b class="red">No Data To Show</b></td>
+</tr>
+<% } %>

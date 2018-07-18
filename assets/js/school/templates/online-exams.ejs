@@ -1,0 +1,37 @@
+<table class="wrapper full-width table-stripped" data-teacher-id="<?=Session::get('user_id')?>" style="min-width: 750px">
+    <thead>
+        <tr>
+            <th>Roll No</th>
+            <th>Name</th>
+            <th>Enroll No</th>
+            <th>Total Questions</th>
+            <th>Total Marks</th>
+            <th>Correct Attempt</th>
+            <th>Obtained Marks</th>
+        </tr>
+    </thead>
+    <tbody id="exams-list-body">
+        <% if(data.length > 0) { %>
+        <% for(var i =0; i < data.length; i++) { %>
+        <tr>
+            <td><%=data[i]['roll_no']%></td>
+            <td><%=data[i]['Name']%></td>
+            <td><%=data[i]['enroll_num']%></td>
+            <td><%=data[i]['total_question']%></td>
+            <td><%=data[i]['total_mark']%></td>
+            <td><%=data[i]['correct_attempt']%></td>
+            <td><%=data[i]['obtained_mark']%></td>
+        </tr>
+        <% } %>
+        <% } else { %>
+        <tr>
+            <td colspan="7">
+                <b class="red">No Data To Show</b>    
+            </td>
+        </tr>
+        <% } %>
+    </tbody>
+</table>
+
+
+

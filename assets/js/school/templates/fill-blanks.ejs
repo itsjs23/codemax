@@ -1,0 +1,55 @@
+
+
+            <form method="POST" action="../../fill-blanks/add">
+                <div id="single-choice">
+                    <p style="text-align: center; border-bottom: 1px solid #ccc; margin-bottom: 3.5rem; text-transform: uppercase; color: #646464">
+                        FILL IN THE BLANKS
+                    </p>
+                 
+                    <div class="max-wrap450">
+                        <h4 style="margin-bottom: 0rem">
+                                <i class="ion-ios-download-outline" style="font-size: 4rem; color: green"></i>
+                                Set Marks
+                        </h4>
+                        <input name="marks"
+                               type="number"
+                               class="full-width"
+                               placeholder="Enter the marks this question carries"
+                                style="margin-bottom: 3rem;" required>
+                        
+                        <h4 style="margin-bottom: 0">
+                                <i class="ion-ios-download-outline" style="font-size: 4rem; color: green"></i>
+                                Your Question
+                        </h4>
+                        
+                        <textarea name="question" class="full-width" style="margin-bottom: 2rem" placeholder="Type your question text here :)" required></textarea>
+                        
+                        <div class="row">
+                            <input type="radio" name="input-choice" value="opt1" required>
+                            <input type="text" name="options[opt1]" style="width: 94%; margin-bottom: 3rem" placeholder="Option text" required>
+                        </div>
+                        
+                        <div class="row">
+                            <input type="radio" name="input-choice" value="opt2">
+                            <input type="text" name="options[opt2]" style="width: 94%; margin-bottom: 3rem" placeholder="Option text" required>
+                        </div>
+                        
+                        <div class="row">
+                            <input type="radio" name="input-choice" value="opt3">
+                            <input type="text" name="options[opt3]" style="width: 94%; margin-bottom: 3rem" placeholder="Option text" required>
+                        </div>
+                        
+                        <div class="row">
+                            <input type="radio" name="input-choice" value="opt4">
+                            <input type="text" name="options[opt4]" style="width: 94%; margin-bottom: 3rem" placeholder="Option text" required>
+                        </div>
+                        
+                        <!--<p style="text-align: center; margin-bottom: 3rem">
+                            <button class="btn-circle btn-red">+</button>
+                            Add A New Choice    
+                        </p>-->
+                        
+                        <button class="new-question-btn btn btn-blue btn-large full-width">Next</button><br><br>
+                </div>
+            </form>
+     

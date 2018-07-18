@@ -1,0 +1,116 @@
+.wrapper {
+    padding-top: 30px;
+}
+.page-head {
+    font-variant: small-caps;
+    border-bottom: 2px solid;
+}
+.sub-head {
+    border-bottom: 1px solid #646464;
+    position: relative;
+    padding-bottom: 1rem;
+    color: #607D8B;
+}
+.sub-head button {
+    position: absolute;
+    right: 0;
+}
+.sub-head select {
+    border-color: #607D8B;
+}
+.sub-head .ion-social-youtube-outline {
+    color: #cd5c5c;
+}
+.video-tile {
+    padding-bottom: 50px;
+}
+.video-tile a {
+    color: #fff;
+}
+.video-tile h5 {
+    background: #cd5c5c;
+    color: #fff;
+    margin-bottom: 0;
+    padding: 1rem;
+}
+.views, .likes {
+    color: #8c8c8c;
+    font-size: 1.2rem;
+    font-weight: 700;
+}
+.views {
+
+}
+.likes {
+    float: right;
+}
+.likes i {
+    color: #cd5c5c;
+    font-size: 1.8rem;
+}
+iframe {
+    width: 100%;
+    background: #eee;
+}
+.nav a.empty-link {
+    background-color: #564b4b;
+    color: #fff;
+    text-align: center;
+}
+.grey-bg {
+    background: #eee;
+}
+iframe {
+    margin-bottom: -5px;
+}
+.video-tile h5 { 
+    /*        background: #3F51B5;*/
+    /*background: #cd5c5c;*/
+    font-size: 1.3rem;
+    font-weight: 400;
+    padding: 0.3rem 0.5rem; 
+}
+
+
+/* -------------------------------------------------------------------------- */
+
+.video-category-link {
+    display: block;
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+    padding: 1rem;
+    margin-bottom: 2rem;
+    color: #fff;
+}
+.pagination-div {
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+    text-align: right;
+}
+.pagination-div a.btn {
+    background: #009688;
+    color: #fff;
+    padding: 0 0.8rem;
+    height: 2rem;
+    line-height: 2rem;
+}
+.pagination-div .text {
+    font-size: 1.4rem;
+}
+@media screen and (max-width: 968px) {
+    .grid-col {
+        padding: 0.5rem;
+    }
+    .video-category-link {
+        margin-bottom: 0.5rem;
+    }
+    .video-category-link h4 {
+        font-size: 2rem;
+    }
+    .video-category-link .ion-social-youtube-outline {
+        display: none;
+    }
+    .pagination-div {
+        margin-bottom: 1rem;
+    }
+}
+    

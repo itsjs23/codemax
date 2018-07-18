@@ -1,0 +1,87 @@
+
+<div class="wrapper row txt-left">
+<% if(data.length > 0) { %>
+<% for(var i = 0, len = data.length; i < len; i++) { %>
+<div style="margin-bottom: 2rem" id="<%=data[i].question_id%>">
+    <div class="row" style="border-bottom: 1px solid">
+        <p class="col m12 t6" style="margin-top: 1rem; margin-bottom:0.5rem; text-transform: uppercase; font-size: 1.2rem; color: #008800; font-weight: 700">
+            #<%=i+1%>. <%=data[i].question_type.replace(/_/g, ' ')%>
+            
+            <!--<button data-event="confirm-edit-question" data-id="<%=data[i].question_id%>" class="btn" title="Edit this question" style="font-size: 1.6rem; color: #cd5c5c">
+                <i class="ion-edit" data-event="confirm-edit-question" data-id="<%=data[i].question_id%>"></i>
+            </button>-->
+        </p>
+        
+        <p class="col m12 t6 txt-right" style="margin-bottom: 0.5rem">
+            <b style="font-size: 1.4rem">Marks: <span ><%=data[i].ques_mark%></span></b>
+        </p>
+    </div>
+    
+    <p style="padding-left: 1.5rem; margin-top: 1rem">
+        <b>Question:</b> <%=data[i].question%>
+		
+		<% if(data[i].question_img !== '') { %>
+        <br><br>
+        <img src="<%=data[i].question_img%>" style="border-radius: 3px; border: 2px solid #ccc">
+        <% } %>
+    </p>
+    <table class="full-width">
+        <thead>
+            <tr>
+                <th>Options:</th>
+                <td></td>
+            </tr>
+        </thead>
+        <tbody>
+        <% for(var k = 0, klen = data[i].options.length; k < klen; k++) { %>
+            
+            <tr>
+                <td >
+                    <% if(data[i].options[k].is_ans == '1') { %>
+                    <i class="ion-checkmark" style="color: green"></i>    
+                    <% } %>
+                    <%=data[i].options[k].option_txt%>
+					
+					<% if(data[i].options[k].option_img !== '') { %>
+                    <br><br>
+                    <img src="<%=data[i].options[k].option_img%>" style="border-radius: 3px; border: 2px solid #ccc">
+                    <% } %>
+                </td>
+                <!--<td>
+                    <button class="btn float-right red">
+                        <i class="ion-android-cancel" style="font-size: 2rem"></i>
+                    </button>
+                </td>-->
+            </tr>
+        <% } %>
+        </tbody>
+    </table>
+    <p>
+        <!--<b style="font-size: 1.4rem">
+            Marks: <span ><%=data[i].ques_mark%></span>
+        </b>-->
+        <% if(data[i].show_delete == 'yes') { %>
+        <button class="btn btn-red float-right confirm-delete-question" title="Delete this question">
+            <i class="ion-android-delete"></i>
+        </button>
+        <% } %>
+        <span class="float-right hide">
+            Sure?
+            <button class="btn btn-green confirm-delete-yes" data-id="<%=data[i].id%>">Yes</button>
+            <button class="btn btn-red confirm-delete-no">No</button>
+        </span>
+    </p>
+</div>
+<% } %>
+<div class="col m12 txt-center" style="border-top: 1px solid; padding-top: 2rem; padding-bottom: 2rem">
+    <!--This was for closing modal, but we no longer need that-->
+    <!--<button class="btn btn-blue" data-btn-type="close">Close</button>-->
+    <a href="" class="btn btn-green">Close</a>
+</div>
+<% } else { %>
+<h5>No questions have been created so far.</h5>
+<div class="col m12 txt-center" style="border-top: 1px solid; padding-top: 2rem; padding-bottom: 2rem">
+<a href="" class="btn btn-green">Close</a>
+</div>
+<% } %>
+</div>

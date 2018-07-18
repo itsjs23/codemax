@@ -1,0 +1,190 @@
+<style>
+    /* These styles are specific for this page*/
+    table caption { text-align: left; padding-bottom: 1rem; font-size: 2rem; font-variant: small-caps; color: #4b6977; border-bottom: 1px solid #000 }
+    table caption i { font-size: 2.2rem }
+    table th, table td { font-size: 1.3rem }
+    .modal-content { color: #000; background: linear-gradient(to right, #a1d3b0, #f6f1d3); }
+    button.top-close { font-size: 2rem }
+    .red-label { font-size: 1.2rem }
+</style>
+
+
+
+<% var total_absent_days = 0; %>
+<!--Profile Block-->
+<table class="full-width">
+    <caption>
+            <i class="ion-university"></i>
+            Profile
+            
+            <button class="btn btn-red float-right top-close" data-btn-type="close">&times;</button>
+    </caption>
+    <tbody>
+        <tr>
+            <td><b>Enroll No</b></td>
+            <td><%=data.profile.Gr_num%></td>
+        </tr>
+        <tr>
+            <td><b>Gr No</b></td>
+            <td><%=data.profile.Enroll%></td>
+        </tr>
+        <tr>
+            <td><b>Name</b></td>
+            <td><%=data.profile.Name%></td>
+        </tr>
+        <tr>
+            <td><b>Father's Name</b></td>
+            <td><%=data.profile.f_name%></td>
+        </tr>
+        <tr>
+            <td><b>Mother's Name</b></td>
+            <td><%=data.profile.m_name%></td>
+        </tr>
+        <tr>
+            <td><b>Gender</b></td>
+            <td><%=data.profile.sex%></td>
+        </tr>
+        <tr>
+            <td><b>D.O.B</b></td>
+            <td><%=data.profile.DOB.split('-').reverse().join('-')%></td>
+        </tr>
+        <tr>
+            <td><b>Medium</b></td>
+            <td><%=data.profile.Medium%></td>
+        </tr>
+        <tr>
+            <td><b>Standard</b></td>
+            <td><%=data.profile.Std%></td>
+        </tr>
+        <tr>
+            <td><b>Section</b></td>
+            <td><%=data.profile.Section%></td>
+        </tr>
+    </tbody>
+</table>
+<!--/Profile Block-->
+
+<!--Attendance Block-->
+<table class="full-width">
+    <caption>
+        <i class="ion-android-checkbox"></i>
+        Attendance
+        <span class="red-label">
+			<% if(data.attendence.absent_date) { %>
+				<%= data.attendence.absent_date.split(', ').length %> 
+			<% } else { %>
+			0
+			<% } %>
+		</span>
+    </caption>
+    <tbody>
+        <tr>
+            <td><%=data.attendence.absent_date%></td>
+        </tr>
+    </tbody>
+</table>
+<!--/Attendance Block-->
+
+<!--Result: Online Exams Block-->
+<table class="full-width">
+    <caption>
+        <i class="ion-ios-list"></i>
+        Result: Online Exams
+    </caption>
+    <thead>
+			<th>Exam</th>
+            <th>Subject</th>
+            <th>Date</th>
+            <th>Marks</th>
+        </tr>
+    </thead>
+    <tbody>
+		<% if(data.result_online.length > 0) { %>
+        <% for(var i = 0; i < data.result_online.length; i++) { %>
+        <tr>
+			<td><%=data.result_online[i].exam_name%></td>
+            <td><%=data.result_online[i].exam_sub_name%></td>
+            <td><%=data.result_online[i].exam_date.split('-').reverse().join('-')%></td>
+            <td><%=data.result_online[i].stu_mark%> / <%=data.result_online[i].total_mark%></td>
+        </tr>
+        <% }} else { %>
+		<tr>
+            <td colspan="3">No Data To Show</td>
+        </tr>
+		<% } %>
+    </tbody>
+</table>
+<!--/Result: Online Exams Block-->
+
+
+<!--Result: Academic Exams Block-->
+<!--<table class="full-width">
+    <caption>
+        <i class="ion-ios-timer"></i>
+        Result: Academic Exams
+    </caption>
+    <thead>
+        <tr>
+            <th>Subject</th>
+            <th>Date</th>
+            <th>Marks</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>Physics</td>
+            <td>21-09-2016</td>
+            <td>32/50</td>
+        </tr>
+        <tr>
+            <td>Chemistry</td>
+            <td>21-09-2016</td>
+            <td>36/50</td>
+        </tr>
+        <tr>
+            <td>Biology</td>
+            <td>21-09-2016</td>
+            <td>49/50</td>
+        </tr>
+    </tbody>
+</table>-->
+<!--/Result: Academic Exams Block-->
+
+<!--Awards Block-->
+<!--<table class="full-width">
+    <caption>
+        <i class="ion-trophy"></i>
+        Awards
+    </caption>
+    <tbody>
+        <tr>
+            <td>Champions Trophy Runner 2016</td>
+        </tr>
+        <tr>
+            <td>Swimming Competition 2nd Runner</td>
+        </tr>
+    </tbody>
+</table>-->
+<!--/Awards-->
+
+<button class="btn btn-red" data-btn-type="close">Close</button>
+
+
+<!--The block below was old one, if not needed, delete it.-->
+<!--<div class="txt-left">
+    <% if(data.length > 0) { for(var i = 0, len = data.length; i < len; i++) { %>
+    <div class="month-box">
+        <p class="blue-bottom"><b>
+            <i class="ion-ios-calendar-outline"></i> <%=data[i].month%>-2016
+        </b></p>
+        <% var dates = data[i].dates.split(','); total_absent_days += dates.length; %>
+        <% dates.forEach(function(date) { %>
+            <span class="btn-circle round-label"><%=date%></span>&nbsp;
+        <% }) %>
+    </div>
+    <% }} %>
+    <p class="summary">
+        Total absent days: <b><%=total_absent_days%></b>
+        &nbsp;&nbsp;&nbsp;
+        <button class="btn btn-red" data-btn-type="close">Close</button></p>
+</div>-->

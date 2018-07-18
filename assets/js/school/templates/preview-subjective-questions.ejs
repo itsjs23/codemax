@@ -1,0 +1,37 @@
+
+<div class="wrapper row txt-left">
+<% if(data.length > 0) { %>
+<% for(var i = 0, len = data.length; i < len; i++) { %>
+<div style="margin-bottom: 2rem" id="<%=data[i].question_id%>">
+    <p style="border-bottom: 1px solid #ccc; margin-bottom:1.5rem; text-transform: uppercase; font-size: 1.2rem; color: #008800; font-weight: 700">
+        #<%=i+1%>. <%=data[i].question_type.replace(/_/g, ' ')%>
+    </p>
+    <p ><%=data[i].question%></p>
+
+    <p>
+        <b style="font-size: 1.4rem">
+            Marks: <span ><%=data[i].ques_mark%></span>
+        </b>
+        <% if(data[i].show_delete == 'yes') { %>
+        <button class="btn btn-red float-right confirm-delete-question" title="Delete this question">
+            <i class="ion-android-delete"></i>
+        </button>
+        <% } %>
+        <span class="float-right hide">
+            Sure?
+            <button class="btn btn-green confirm-delete-yes" data-id="<%=data[i].id%>">Yes</button>
+            <button class="btn btn-red confirm-delete-no">No</button>
+        </span>
+    </p>
+</div>
+<% } %>
+<div class="col m12 txt-center" style="border-top: 1px solid; padding-top: 2rem; padding-bottom: 2rem">
+    <a href="" class="btn btn-green">Close</a>
+</div>
+<% } else { %>
+<h5>No questions have been created so far.</h5>
+<div class="col m12 txt-center" style="border-top: 1px solid; padding-top: 2rem; padding-bottom: 2rem">
+<a href="" class="btn btn-green">Close</a>
+</div>
+<% } %>
+</div>

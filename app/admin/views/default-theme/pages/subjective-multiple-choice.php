@@ -1,0 +1,91 @@
+
+            <form method="POST" action="<?=Link::build('multiple-choice/add/stay-here')?>" enctype="multipart/form-data">
+                <div id="mcqs-div">
+                    <p style="text-align: center; border-bottom: 1px solid #ccc; margin-bottom: 3.5rem; text-transform: uppercase; color: #646464">MULTIPLE CHOICE QUESTIONS</p>
+                 
+                    <div class="max-wrap450">
+                        <h4 style="margin-bottom: 0rem">
+                                <i class="ion-ios-download-outline" style="font-size: 4rem; color: green"></i>
+                                Set Marks
+                        </h4>
+                        <input name="marks"
+                               type="number"
+                               class="full-width"
+                               placeholder="Enter the marks this question carries"
+                               style="margin-bottom: 3rem;" required>
+                        
+                        <h4 style="margin-bottom: 0">
+                                <i class="ion-ios-download-outline" style="font-size: 4rem; color: green"></i>
+                                Your Question
+                                <span style="float: right; margin-top: 1rem">
+                                    <i class="ion-android-camera upload-image-icon" data-btn="image-upload" data-name="question" data-image-holder="upload-question-image"></i> Image
+                                </span>
+                        </h4>
+                        
+                        <textarea name="question" class="full-width" style="margin-bottom: 2rem" placeholder="Type your question text here :)" required></textarea>
+                        <div id="upload-question-image" class="hide">
+                            <img>
+                        </div>
+                        
+                        <div class="row">
+                            <input type="checkbox" name="choice[opt1]" value="opt1" required>
+                            <input type="text" name="options[opt1]" style="width: 94%" placeholder="Option text" required>
+                            <span class="option" style="float: right;">
+                                    <i class="ion-android-camera upload-image-icon" data-btn="image-upload" data-name="opt1" data-image-holder="upload-opt1-image"></i>
+                            </span>
+                        </div>
+                        <div id="upload-opt1-image" class="hide">
+                            <img>
+                        </div>
+                        
+                        <div class="row">
+                            <input type="checkbox" name="choice[opt2]" value="opt2">
+                            <input type="text"  name="options[opt2]" style="width: 94%" placeholder="Option text" required>
+                            <span class="option" style="float: right;">
+                                    <i class="ion-android-camera upload-image-icon" data-btn="image-upload" data-name="opt2" data-image-holder="upload-opt2-image"></i>
+                            </span>
+                        </div>
+                        <div id="upload-opt2-image" class="hide">
+                            <img>
+                        </div>
+                        
+                        <div class="row">
+                            <input type="checkbox" name="choice[opt3]" value="opt3">
+                            <input type="text" name="options[opt3]" style="width: 94%" placeholder="Option text" required>
+                            <span class="option" style="float: right;">
+                                <i class="ion-android-camera upload-image-icon" data-btn="image-upload" data-name="opt3" data-image-holder="upload-opt3-image"></i>
+                            </span>
+                        </div>
+                        <div id="upload-opt3-image" class="hide">
+                            <img>
+                        </div>
+                        
+                        <div class="row">
+                            <input type="checkbox" name="choice[opt4]" value="opt4">
+                            <input type="text" name="options[opt4]" style="width: 94%" placeholder="Option text" required>
+                            <span class="option" style="float: right;">
+                                    <i class="ion-android-camera upload-image-icon" data-btn="image-upload" data-name="opt4" data-image-holder="upload-opt4-image"></i>
+                            </span>
+                        </div>
+                        <div id="upload-opt4-image" class="hide">
+                            <img>
+                        </div>
+                        
+                        <!--<p style="text-align: center; margin-bottom: 3rem">
+                            <button class="btn-circle btn-red">+</button>
+                            Add A New Choice
+                        </p>-->
+                        
+                        <button class="btn btn-blue btn-large full-width">Next</button><br><br>
+                    </div>
+                </div>
+                <!--this is the image upload hidden div-->
+                <div id="hidden-image-div" class="hide">
+                    <input type="file" id="image-upload-input" name="img[question]" class="show" accept="image/*">
+                    <input type="file" id="image-upload-input" name="img[opt1]" class="show" accept="image/*">
+                    <input type="file" id="image-upload-input" name="img[opt2]" class="show" accept="image/*">
+                    <input type="file" id="image-upload-input" name="img[opt3]" class="show" accept="image/*">
+                    <input type="file" id="image-upload-input" name="img[opt4]" class="show" accept="image/*">
+                </div>
+            </form>    
+     
