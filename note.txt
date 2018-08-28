@@ -1,3 +1,223 @@
 username: admin
 password: 123
 
+-------- ANGULAR JS 1.x -------------
+
+controllers, directives, filters, and more
+
+AngularJS Directives
+>ng-app
+>ng-model
+>ng-init
+>ng-bind
+>ng-repeat :" x in names" {{x}}
+
+
+The ng-app directive initializes an AngularJS application.
+The ng-init directive initializes application data.
+
+
+custome directive
+==================
+
+ When naming a directive, you must use a camel case name,
+ w3TestDirective, but when invoking it, you must use - separated name, 
+ w3-test-directive:
+
+You can invoke a directive by using:
+
+> Element name
+> Attribute
+> Class
+> Comment
+
+ <w3-test-directive></w3-test-directive>
+ <div w3-test-directive></div>
+ <div class="w3-test-directive"></div>
+ <!-- directive: w3-test-directive -->
+
+
+By adding a restrict property with the value "A", 
+the directive can only be invoked by attributes:
+
+The legal restrict values are:
+
+E for Element name
+A for Attribute
+C for Class
+M for Comment
+
+By default the value is EA, meaning that both 
+Element names and attribute names can invoke the directive.
+
+
+app.directive("w3TestDirective", function() {
+	return {
+		restrict : "A",
+		template : "I was made in a directive constructor!" 
+	};
+});
+
+
+
+
+
+
+
+ng-model Directive 
+===================
+
+The ng-model directive binds 
+the value of HTML controls (input, select, textarea) to application data.
+
+Provide type validation for application data (number, email, required).
+Provide status for application data (invalid, dirty, touched, error).
+Provide CSS classes for HTML elements.
+Bind HTML elements to HTML forms.
+
+>provide status for application data (invalid, dirty, touched, error):
+
+> Validate User Input
+> Application Status
+> CSS Classes
+
+ng-model directive adds/removes the following classes, 
+according to the status of the form field:
+
+ng-empty
+ng-not-empty
+ng-touched
+ng-untouched
+ng-valid
+ng-invalid
+ng-dirty
+ng-pending
+ng-pristine
+
+
+
+
+AngularJS Data Binding
+=======================
+
+> Data Model : 
+ 
+ 
+.  ng-model directive to bind data from the model to
+   the view on HTML controls (input, select, textarea).
+
+.  provides a two-way binding between the model and the view
+
+  <input ng-model="firstname">
+  <p ng-bind="firstname"></p>
+  <p>First name: {{firstname}}</p>
+
+
+
+
+
+
+
+
+AngularJS Controller 
+=====================
+
+A controller is a JavaScript Object,
+created by a standard JavaScript object constructor.
+
+
+
+
+
+
+
+
+
+AngularJS Scope
+=================
+
+> binding part between the HTML (view) and the JavaScript (controller).
+> scope is an object with the available properties and methods.
+> available for both the view and the controller.
+
+> View, which is the HTML.
+> Model, which is the data available for the current view.
+> Controller, which is the JavaScript function 
+that makes/changes/removes/controls the data.
+
+
+
+Root Scope
+-----------
+> $rootScope which is the scope created on the 
+  HTML element that contains the ng-app directive.
+
+
+
+
+
+
+
+
+
+
+AngularJS Filters
+==================
+
+> currency Format a number to a currency format.
+> date Format a date to a specified format.
+> filter Select a subset of items from an array.
+> json Format an object to a JSON string.
+> limitTo Limits an array/string, into a specified number of 
+elements/characters.
+> lowercase Format a string to lower case.
+> number Format a number to a string.
+> orderBy Orders an array by an expression.
+> uppercase Format a string to upper case.
+
+
+
+<p>The name is {{ lastName | uppercase }}</p>
+
+<li ng-repeat="x in names | orderBy:'country'">
+    {{ x.name + ', ' + x.country }}
+ </li>
+
+The filter Filter
+-----------------
+
+> filter selects a subset of an array.
+> filter can only be used on arrays, and it returns
+  an array containing only the matching items.
+
+
+Display the items that contains the letter "A":
+<li ng-repeat="x in names | filter : 'i'">
+
+{{ arrayexpression | filter : expression : comparator }}
+
+<li ng-repeat="x in customers | filter : {'name' : 'O', 'city' : 'London'}">
+
+<li ng-repeat="x in customers | filter : 'London' : true">
+
+<li ng-repeat="x in names | filter:test">
+
+Custom Filters
+--------------
+
+<li ng-repeat="x in names">
+   {{x | myFormat}}
+</li>
+
+
+
+
+
+
+
+
+AngularJS Services
+===================
+
+> service is a function, or object, that is available for, 
+  and limited to, your AngularJS application.
