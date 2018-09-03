@@ -12,7 +12,6 @@ password : 123
 
 
 ---------------------------------------------------------------------------------
-
 <!-- index.html -->
 <!DOCTYPE html>
 <html>
@@ -29,31 +28,27 @@ password : 123
 
 <!-- JS (load angular, ui-router, and our custom js file) -->
 <script src="assets/js/angular-1.2.13.js"></script>
-<script src="assets/js/angular-ui-router.min.js"></script>
+<!-- <script src="assets/js/angular-ui-router.min.js"></script> -->
+<script src="assets/js/angular-ui-router.js"></script>
 <script src="assets/js/ui-grid/ui-grid.min.js"></script>
+<!-- <script src="assets/js/st.js"></script> -->
 
 <!-- myapp script -->
 <script type="text/javascript">
 	var app =  angular.module('myapp',['ui.grid','ui.router']);
 
-	// app.config(function($stateProvider) {
-	// 	var helloState = {
-	// 		name: 'hello',
-	// 		url: '/hello',
-	// 		template: '<h3>hello world!</h3>'
-	// 	}
+	app.config(['$stateProvider',  function ($stateProvider) {
+		$stateProvider.state('users', {
+			url: '/users', 
+			params: { obj : null },
+			controller: function($stateParams) {
+				console.log($stateParams);
+			}
+		});
+	}]);
 
-	// 	var aboutState = {
-	// 		name: 'about',	
-	// 		url: '/about',
-	// 		template: '<h3>Its the UI-Router hello world app!</h3>'
-	// 	}
-
-	// 	$stateProvider.state(helloState);
-	// 	$stateProvider.state(aboutState);
-	// });
 	
-	app.controller('workflow-filter', ['$scope', function($scope) {
+	app.controller('workflow-filter', ['$scope','$state' , function($scope, $state) {
 		$scope.filter_type_list = ['customer Name', 'CIN', 'PAN CARD', 'COMPany Name'];
 		$scope.filter_type_value = [];
 		$scope.filterData= {};
@@ -113,15 +108,17 @@ password : 123
 		};
 
 
-
-
-
 		$scope.getApplicationData = function (entity) {
 			// get data and bind it to view 
 			// get data 
 
+			// in app-states.js (or whatever you want to name it)
+			// $state.state('contacts', {
+			// 	template: '<h1>My Contacts</h1>'
+			// })
 
-
+			$state.go('users', {obj : entity});
+			// $state.go('users', entity);
 		};
 		
 		function getCustomerName(){
@@ -197,7 +194,4 @@ password : 123
 
 </body>
 </html>
-
-
-
 
