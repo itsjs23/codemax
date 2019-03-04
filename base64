@@ -1,0 +1,36 @@
+var fs = require('fs');
+
+function base64_encode(file) {
+    var bitmap = fs.readFileSync(file);
+    return new Buffer(bitmap).toString('base64');
+}
+
+function base64_decode(base64str, file) {
+    var bitmap = new Buffer(base64str, 'base64');
+    fs.writeFileSync(file, bitmap);
+    console.log('******** File created from base64 encoded string ********');
+}
+
+function readingTxtFile(file){
+	 var txt = fs.readFileSync(file, 'UTF-8');
+    return txt;
+}
+
+function writeToTextFile(base64str, file){
+    fs.writeFileSync(file, base64str);
+    console.log('******** File created from base64 encoded string ********');
+}
+
+
+// Step-1
+
+
+var base64str = base64_encode('s.zip');
+writeToTextFile(base64str, 's2.txt');
+
+
+// Step-2
+
+
+var txtFile = readingTxtFile('s2.txt');
+base64_decode(txtFile, 's2.zip');
