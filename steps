@@ -1,0 +1,10 @@
+> share Folder : "\\mumchsid08\PythonTraining"
+> app path : "D:\Angular Training\ng_new\webapp"
+
+> http://codeshare.io/
+> codeburst.io
+> json-server
+	> restapi folder
+    > db.json 
+	> change path to restapi folder 
+    > json-server --watch db.json --port 90 -d 2000
