@@ -8,3 +8,12 @@
     > db.json 
 	> change path to restapi folder 
     > json-server --watch db.json --port 90 -d 2000
+
+
+
+
+
+angular folder structure :
+========================
+
+https://itnext.io/choosing-a-highly-scalable-folder-structure-in-angular-d987de65ec7
